@@ -25,6 +25,7 @@ docker-compose up
 <img width="737" alt="image" src="https://github.com/gracemkuo/NoteTakingApp/assets/55439817/5d70d55f-e5ef-4fb1-bb35-04739fb33307">
 
 ## Frontend Usage
+Available at `http://localhost/`
 - **Writing Notes**: Simply enter your thoughts into the textarea.
 - **Creating a New Note**: Click the write button to open a new blank textarea.
 - **Notes Timeline**: Notes are recorded with timestamps and listed on the left side.
