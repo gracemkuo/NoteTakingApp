@@ -9,7 +9,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigin",
         policyBuilder =>
         {
-            policyBuilder.WithOrigins("http://localhost:8080", "http://localhost") 
+            policyBuilder.WithOrigins("http://localhost:8080") 
                          .AllowAnyHeader() 
                          .AllowAnyMethod(); 
         });
@@ -25,18 +25,20 @@ builder.Services.AddDbContext<NoteDbContext>(options =>
 var app = builder.Build();
 app.UseCors();
 // Configure the HTTP request pipeline.
-
-app.UseSwagger();
-app.UseSwaggerUI();
-app.UseDeveloperExceptionPage();
-
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+	app.UseDeveloperExceptionPage();
+}
 app.UseRouting();
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowSpecificOrigin");
+
 app.UseAuthorization();
 
-app.UseCors("AllowSpecificOrigin");
 
 app.MapControllers();
 
