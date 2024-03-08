@@ -1,0 +1,40 @@
+services:
+  db:
+    container_name: db
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    volumes:
+      - ./back-end/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  taking-note-back-end:
+    container_name: taking-note-back-end
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./back-end/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=User ID=postgres;Password=postgres;Server=db;Port=5432;Database=postgres;Pooling=true;
+      - Logging__LogLevel__Default=Information
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  taking-note-front-end:
+    image: taking-note-front-end
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./front-end/Dockerfile
+      args:
+        VUE_APP_API_URL: http://localhost:8080
+    ports:
+      - "80:80"
+    depends_on:
+      - taking-note-back-end

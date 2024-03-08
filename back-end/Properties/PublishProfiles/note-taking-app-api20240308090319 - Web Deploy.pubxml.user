@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAk+3ppbgl7Ea4W2gzf0fg2gAAAAACAAAAAAAQZgAAAAEAACAAAAC2/5njUPOGTFRbx0xoXFwFWrjTSHDi8NrmsgcAaS5hDwAAAAAOgAAAAAIAACAAAAAh8bV4+TqSPt904rMhev0wT4uES+ZXCSoj5JxB7p27RYAAAADlypO2wSIRfP5lT5y9Ay8dCs0Ea2bPJQfeBZ5pTWRP3JGI+yKAQl5ecs7K7f26k5bWmm3yVagIETrs095NkDwwTbFzOJj0ORmXQRT3tTVsPpnFdhB+TW/7EJI81XdBAuAcaixT0mr3FLArsaivH4UGGWVVBcfzRF3x2OouMLiziUAAAACf3ldY3onOvtjLvw1Yrl95kAl8nqx1iXIeGs292afFVN7EwaWFVdTPTx2EBrb7fm3jb+oRUeyAtK4zSRBfX+lv</EncryptedPassword>
+    <History>False|2024-03-08T05:14:57.4787429Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="note_taking_app_api.Models.NoteDbContext">
+      <Value>Host=localhost%3bPort=5432%3bDatabase=postgres%3bUsername=postgres%3bPassword=postgres</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
